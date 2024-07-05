@@ -4,8 +4,6 @@ import React, { useState, useEffect } from 'react';
 import db from '../../dbconnect';
 import { collection, getDocs } from 'firebase/firestore';
 import Link from 'next/link';
-import Grades from './grades';
-import Categories from './categories';
 
 type Book = {
   id: string;
@@ -13,7 +11,6 @@ type Book = {
   author: string;
   year: string;
   category: string;
-  grade: number;
   pdfUrl: string;
 };
 
@@ -53,14 +50,12 @@ function Page() {
   return (
     <div className="max-w-4xl mx-auto mt-8 px-4">
       <nav className='flex justify-between'>
-        <Link href='/homepage' className='border border-gray-500 px-4 py-2 rounded-sm'>Back</Link>
-        <Grades />
-        <Categories />
-        <Link href='/homepage/revision' className='border border-gray-500 px-4 py-2 rounded-sm'>Revision Materials</Link>
+        <Link href='/homepage' className='items-start'>Back</Link>
+        <Link href='/revision'>Revision Materials</Link>
       </nav>
-      <h1 className="text-3xl font-bold m-4">Books</h1>
+      <h1 className="text-3xl font-bold mb-4">Books</h1>
       {books.map((book) => (
-        <div key={book.id} className="border rounded-lg border-gray-300 p-4 mb-4 grid-rows-4">
+        <div key={book.id} className="border rounded-lg border-gray-300 p-4 mb-4">
           <p className="text-xl font-semibold">{book.title}</p>
           <p className="text-gray-600">Author: {book.author}</p>
           <p className="text-gray-600">Year: {book.year}</p>
