@@ -6,28 +6,29 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import db from "./dbconnect";
 
 interface StudentLogin {
-  admissionNumber: number,
+  admissionNumber: number | string,
   password: string
 }
 
 export default function Home() {
   const router = useRouter();
   const [login, setLogin] = useState<StudentLogin>({
-    admissionNumber : 0,
+    admissionNumber : '',
     password : ''
   });
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const {admissionNumber, password} = login
 
-    const student = collection(db, "Students");
-    const studentRef = doc(student, admissionNumber);
-    const snapshot = await getDoc(studentRef)
+    // const {admissionNumber, password} = login
 
-    if (!snapshot.exists){
-      alert("Student details is not in our database, please consult the library Administration for assistance")
-    }
+    // const student = collection(db, "Students");
+    // const studentRef = doc(student, admissionNumber);
+    // const snapshot = await getDoc(studentRef)
+
+    // if (!snapshot.exists){
+    //   alert("Student details is not in our database, please consult the library Administration for assistance")
+    // }
 
 
     router.push('/homepage');
@@ -41,7 +42,7 @@ export default function Home() {
 
   return (
     <main className="h-screen flex justify-center items-center p-6 bg-gray-300">
-      <div className="justify-center items-center border rounded-md shadow-md w-3/6">
+      <div className="justify-center items-center border rounded-md shadow-md sm:w-3/6">
         <form className="px-8 pt-6 pb-8 mb-4 bg-gray-200 rounded" onSubmit={handleSubmit}>
           <input type="text" placeholder="Admission number..."
           name = 'admissionNumber' value={login.admissionNumber} onChange={handleLoginInput}
