@@ -57,8 +57,8 @@ export default function Home() {
             className="w-full my-2 px-4 py-2 font-bold text-white bg-blue-500 rounded-md 
             hover:bg-blue-700 focus:outline-none focus:shadow-outline"
             >Login</button>
-            <p className="flex justify-center">Forgot password?<Link href='/resetpassword' className="text underline">Reset</Link></p>
-            <p className="flex justify-center">Don&apos;t have password?<Link href='#' className="text underline">Get password</Link></p>
+            <p className="flex justify-center">{"Forgot password?"}<Link href='/resetpassword' className="text underline">Reset</Link></p>
+            <p className="flex justify-center">{"Don't have password?"}<Link href='#' className="text underline">Get password</Link></p>
         </form>
       </div>
     </main>
