@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { ChangeEvent, useState } from 'react'
 
@@ -6,7 +6,7 @@ interface GradeProps {
   onSelect: (grade: number | null ) => void
 }
 
-function grades({onSelect}: GradeProps) {
+function Grades({onSelect}: GradeProps) {
     const [grade, setGrade] = useState<number | string | null>(null);
     function handleGradeSet(event: ChangeEvent<HTMLSelectElement>){
         const value = event.target.value;
@@ -33,4 +33,4 @@ function grades({onSelect}: GradeProps) {
   )
 }
 
-export default grades
+export default Grades
