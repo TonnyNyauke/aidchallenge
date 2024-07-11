@@ -58,7 +58,7 @@ export default function Home() {
             hover:bg-blue-700 focus:outline-none focus:shadow-outline"
             >Login</button>
             <p className="flex justify-center">{"Forgot password?"}<Link href='/resetpassword' className="text underline">Reset</Link></p>
-            <p className="flex justify-center">{"Don't have password?"}<Link href='#' className="text underline">Get password</Link></p>
+            <p className="flex justify-center">{"Don&apos;t have password?"}<Link href='#' className="text underline">Get password</Link></p>
         </form>
       </div>
     </main>
